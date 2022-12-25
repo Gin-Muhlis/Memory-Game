@@ -112,11 +112,15 @@ body {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
-  display: flex;
+  display: none;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 25px;
+  gap: 35px;
+}
+
+.sign-up-section.visible {
+  display: flex;
 }
 
 .sign-up-section .username-field {
@@ -135,7 +139,8 @@ body {
 
 .username-field input {
   font-family: 'Poppins', sans-serif;
-  font-size: 15px;
+  font-size: 14px;
+  color: #181818;
   border: none;
   outline: none;
   background: #ffffff;
@@ -156,6 +161,224 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-.gender label {
+.gender {
   font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+}
+
+.gender .female {
+  color: #EA047E;
+}
+
+.gender .male {
+  color: #00FFF6;
+}
+
+.gender:hover,
+.gender.active {
+  opacity: .6;
+}
+
+.avatar-field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.avatar-field .avatar-image {
+  width: 30px;
+  height: 30px;
+  padding: 1px 1px 0 1px;
+  border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+}
+
+.avatar-field .avatar1 {
+  background-color: #9F73AB;
+}
+
+.avatar-field .avatar2 {
+  background-color: #F0FF42;
+}
+
+.avatar-field .avatar3 {
+  background-color: #7DE5ED;
+}
+
+.avatar-field .avatar4 {
+  background-color: #D58BDD;
+}
+
+.avatar-field .avatar5 {
+  background-color: #38E54D;
+}
+
+.avatar-field .avatar6 {
+  background-color: #FF1E1E;
+}
+
+.avatar-field .avatar-image:hover, 
+.avatar-field .avatar-image.active {
+  opacity: .7;
+}
+
+.sign-up-section .start-game {
+  width: 100%;
+  padding-block: 10px;
+  color: #fff;
+  font-weight: 600;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+}
+
+.sign-up-section .start-game:hover {
+  transform: scale(.9);
+  -webkit-transform: scale(.9);
+  -moz-transform: scale(.9);
+  -ms-transform: scale(.9);
+  -o-transform: scale(.9);
+}
+
+/* !game section */
+.game-container {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
+  gap: 10px;
+}
+
+.game-container .game-info-container {
+ grid-column: 1/-1; 
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ perspective: 500px;
+}
+
+.card {
+  width: 125px;
+  height: 175px;
+  position: relative;
+}
+
+.card .card-face {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  border-width: 1px;
+  border-style: solid;
+  border-radius: 12px;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  -ms-border-radius: 12px;
+  -o-border-radius: 12px;
+  transition: transform .5s ease-in-out;
+  -webkit-transition: transform .5s ease-in-out;
+  -moz-transition: transform .5s ease-in-out;
+  -ms-transition: transform .5s ease-in-out;
+  -o-transition: transform .5s ease-in-out;
+}
+
+.card-back {
+  background-color: #31E1F7;
+  border-color: #fff;
+}
+
+.card-front {
+  background: #ffbb89;
+  border-color: #333;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+
+.snow-angle {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+}
+
+.snow-top-left {
+  top: 0;
+  left: 0;
+  transform: rotate(270deg);
+  -webkit-transform: rotate(270deg);
+  -moz-transform: rotate(270deg);
+  -ms-transform: rotate(270deg);
+  -o-transform: rotate(270deg);
+}
+
+.snow-top-right {
+  top: 0;
+  right: 0;
+  transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+}
+
+.snow-bottom-left {
+  bottom: 0;
+  left: 0;
+  transform: rotate(900deg);
+  -webkit-transform: rotate(900deg);
+  -moz-transform: rotate(900deg);
+  -ms-transform: rotate(900deg);
+  -o-transform: rotate(900deg);
+}
+
+.snow-bottom-right {
+  bottom: 0;
+  right: 0;
+  transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+}
+
+.snow-center {
+  width: 90px;
+  height: 90px;
 }
