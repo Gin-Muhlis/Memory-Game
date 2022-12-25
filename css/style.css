@@ -1,7 +1,161 @@
-body {
-  background-image: radial-gradient(#527F2F, #21524F);
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sevillana&display=swap');
+
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-image: radial-gradient(#527F2F, #21524F);
   min-height: 100vh;
-  width: 100vw;
+  overflow-x: hidden;
+  height: inherit;
+}
+
+.tree1 {
+  width: 110px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  opacity: .9;
+}
+
+.tree2 {
+  width: 110px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  opacity: .9;
+}
+
+/* !welcome section */
+.welcome-section {
+  min-height: 100%;
+  background: rgba(0, 0, 0, .7);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.welcome-section.visible {
+  display: flex;
+}
+
+.welcome-section .small-welcome-text {
+  font-family: 'Sevillana', cursive;
+  font-size: 2em;
+  color: rgba(14,174,87,.8) ;
+  font-weight: normal;
+  line-height: .7;
+}
+
+.welcome-section .welcome-title-text {
+  font-family: 'Sevillana', cursive;
+  font-size: 3em;
+  color: rgba(14,174,87,1) ;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.welcome-section .enter-button {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  padding: 7px 28px;
+  color: #fff;
+  font-weight: 600;
+  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+}
+
+.welcome-section .enter-button:hover {
+  transform: scale(.9);
+  -webkit-transform: scale(.9);
+  -moz-transform: scale(.9);
+  -ms-transform: scale(.9);
+  -o-transform: scale(.9);
+}
+
+/* !sign up section */
+.sign-up-section {
+  width: 300px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, .7);
+  padding: 30px 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.sign-up-section .username-field {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.username-field label {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 15px;
+}
+
+.username-field input {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  border: none;
+  outline: none;
+  background: #ffffff;
+  padding: 5px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.gender-field {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  font-family: 'Poppins', sans-serif;
+}
+
+.gender label {
+  font-size: 16px;
 }
