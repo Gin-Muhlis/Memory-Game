@@ -164,6 +164,10 @@ body {
   font-size: .95em;
 }
 
+.username-field label:hover {
+  cursor: url('../assets/cursor/hol462.cur'), auto;
+}
+
 .username-field input {
   font-family: 'Poppins', sans-serif;
   font-size: .9em;
@@ -706,6 +710,23 @@ body {
   -o-transform: scale(.9);
 }
 
+.finish-victory {
+  display: none;
+  font-family: 'Sevillana', cursive;;
+  font-size: 5em;
+  text-align: center;
+  font-weight: bold;
+  margin-block: 25px;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(14, 174, 87, 1) 0%, rgba(12, 116, 117, 1) 90%);
+}
+
+.finish-victory.visible {
+  display: block;
+}
+
 /* !finish section responsive break points */
 @media screen and (min-width: 768px) {
   .finish-section {
@@ -753,3 +774,4 @@ body {
   }
 
 }
+

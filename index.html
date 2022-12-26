@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://kit.fontawesome.com/64f5e4ae10.js" crossorigin="anonymous"></script>
   <script src="script/script.js" async></script>
+  <script src="https://kit.fontawesome.com/64f5e4ae10.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
@@ -14,14 +14,14 @@
   <img src="assets/images/tree.png" alt="christmas tree" class="tree2">
 
   <!-- !welcome -->
-  <div class="welcome-section">
+  <div class="welcome-section visible">
     <span class="small-welcome-text">Welcome To</span>
     <h1 class="welcome-title-text">Memeory Game</h1>
     <button class="enter-button">Enter Game</button>
   </div>
 
   <!-- !sign up -->
-  <div class="sign-up-section visible">
+  <div class="sign-up-section">
     <div class="username-field">
       <label for="username">
         Username
@@ -55,7 +55,7 @@
   <div class="game-container">
     <div class="game-info-container">
       <div class="time-field">
-        Time <span id="time">0</span>
+        Time <span id="hour">00</span>:<span id="minute">00</span>:<span id="second">00</span>
       </div>
       <div class="flips-field">
         Flips <span id="flips">0</span>
@@ -320,6 +320,9 @@
    
   </div>
 
+  <h1 class="finish-victory">
+    Vitory!!!
+  </h1>
   <!-- !finish section -->
   <div class="finish-section">
     <div class="best-score">
