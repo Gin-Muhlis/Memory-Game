@@ -52,7 +52,7 @@ body {
 .welcome-section .small-welcome-text {
   font-family: 'Sevillana', cursive;
   font-size: 2em;
-  color: rgba(14,174,87,.8) ;
+  color: rgba(14, 174, 87, .8);
   font-weight: normal;
   line-height: .7;
 }
@@ -60,7 +60,7 @@ body {
 .welcome-section .welcome-title-text {
   font-family: 'Sevillana', cursive;
   font-size: 3em;
-  color: rgba(14,174,87,1) ;
+  color: rgba(14, 174, 87, 1);
   font-weight: bold;
   margin-bottom: 30px;
 }
@@ -73,7 +73,7 @@ body {
   padding: 7px 28px;
   color: #fff;
   font-weight: 600;
-  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(14, 174, 87, 1) 0%, rgba(12, 116, 117, 1) 90%);
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -234,7 +234,7 @@ body {
   background-color: #FF1E1E;
 }
 
-.avatar-field .avatar-image:hover, 
+.avatar-field .avatar-image:hover,
 .avatar-field .avatar-image.active {
   opacity: .7;
 }
@@ -244,7 +244,7 @@ body {
   padding-block: 10px;
   color: #fff;
   font-weight: 600;
-  background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(14,174,87,1) 0%, rgba(12,116,117,1) 90% );
+  background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(14, 174, 87, 1) 0%, rgba(12, 116, 117, 1) 90%);
   text-transform: uppercase;
   border: none;
   outline: none;
@@ -271,25 +271,36 @@ body {
 /* !game section */
 .game-container {
   height: 100%;
-  display: grid;
+  display: none;
   grid-template-columns: repeat(4, auto);
   align-items: center;
+  align-content: center;
   justify-content: center;
   justify-items: center;
   gap: 10px;
 }
 
+.game-container.visible {
+  display: grid;
+}
+
 .game-container .game-info-container {
- grid-column: 1/-1; 
- display: flex;
- align-items: center;
- justify-content: space-between;
- perspective: 500px;
+  width: 100%;
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  perspective: 500px;
+  font-family: 'Sevillana', cursive;
+  font-size: 2em;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
 .card {
-  width: 125px;
-  height: 175px;
+  width: 70px;
+  height: 120px;
   position: relative;
 }
 
@@ -305,11 +316,11 @@ body {
   -webkit-backface-visibility: hidden;
   border-width: 1px;
   border-style: solid;
-  border-radius: 12px;
-  -webkit-border-radius: 12px;
-  -moz-border-radius: 12px;
-  -ms-border-radius: 12px;
-  -o-border-radius: 12px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
   transition: transform .5s ease-in-out;
   -webkit-transition: transform .5s ease-in-out;
   -moz-transition: transform .5s ease-in-out;
@@ -318,13 +329,13 @@ body {
 }
 
 .card-back {
-  background-color: #31E1F7;
+  background-color: #285430;
   border-color: #fff;
 }
 
 .card-front {
   background: #ffbb89;
-  border-color: #333;
+  border-color: #fff;
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
@@ -334,8 +345,8 @@ body {
 
 .snow-angle {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 25px;
+  height: 25px;
 }
 
 .snow-top-left {
@@ -378,7 +389,137 @@ body {
   -o-transform: rotate(90deg);
 }
 
-.snow-center {
-  width: 90px;
-  height: 90px;
+.snow-center,
+.card-value {
+  width: 50px;
+  height: 50px;
+}
+
+.card.visible .card-back {
+  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  -o-transform: rotateY(-180deg);
+}
+
+.card.visible .card-front {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+}
+
+@keyframes dance {
+  0%,
+  100% {
+    transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+  }
+
+  25% {
+    transform: rotate(-30deg);
+    -webkit-transform: rotate(-30deg);
+    -moz-transform: rotate(-30deg);
+    -ms-transform: rotate(-30deg);
+    -o-transform: rotate(-30deg);
+  }
+
+  75% {
+    transform: rotate(30deg);
+    -webkit-transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+    -ms-transform: rotate(30deg);
+    -o-transform: rotate(30deg);
+  }
+}
+
+.card.matched .card-value{
+  animation: dance .8s infinite linear;
+  -webkit-animation: dance .8s infinite linear;
+}
+
+
+/* !finish section */
+.finish-section {
+  font-family: 'Poppins', sans-serif;
+  width: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 25px;
+}
+
+.finish-section .best-score {
+ width: 100%;
+ display: flex;
+ flex-direction: column;
+ align-items: flex-start;
+ justify-content: flex-start;
+ gap: 10px;
+ background: rgba(0, 0, 0, .7);
+ padding: 30px 20px;
+ border-radius: 10px;
+ -moz-border-radius: 10px;
+ -ms-border-radius: 10px;
+ -o-border-radius: 10px;
+ -webkit-border-radius: 10px;
+}
+
+.best-score .profile-finish {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+.profile-finish .image-profile-finish {
+  width: 50px;
+  height: 50px;
+  background-color: #9F73AB;
+  padding: 1px 1px 0 1px;
+  overflow: hidden;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.image-profile-finish img {
+  width: 100%;
+  height: 100%;
+}
+
+.text-name-finish {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.text-name-finish .username-finish {
+  font-size: 1.1em;
+  color: #fff;
+}
+
+.text-name-finish .gender-finish {
+  font-size: 1em;
+  color: #00FFF6;
 }
