@@ -10,6 +10,7 @@
 
 html {
   height: 100%;
+  cursor: url('../assets/cursor/hol462.cur'), auto;
 }
 
 body {
@@ -94,6 +95,7 @@ body {
 }
 
 .welcome-section .enter-button:hover {
+  cursor: url('../assets/cursor/hol462.cur'), auto;
   transform: scale(.9);
   -webkit-transform: scale(.9);
   -moz-transform: scale(.9);
@@ -205,7 +207,11 @@ body {
   color: #00FFF6;
 }
 
-.gender:hover,
+.gender:hover {
+  opacity: .6;
+  cursor: url('../assets/cursor/hol462.cur'), auto;
+}
+
 .gender.active {
   opacity: .6;
 }
@@ -223,6 +229,9 @@ body {
   width: 30px;
   height: 30px;
   padding: 1px 1px 0 1px;
+  border-width: 2px;
+  border-style: solid;
+  border-color: transparent;
   border-radius: 4px;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -235,34 +244,39 @@ body {
   -o-transition: .5s;
 }
 
-.avatar-field .avatar1 {
+.avatar-field #avatar1 {
   background-color: #9F73AB;
 }
 
-.avatar-field .avatar2 {
+.avatar-field #avatar2 {
   background-color: #F0FF42;
 }
 
-.avatar-field .avatar3 {
+.avatar-field #avatar3 {
   background-color: #7DE5ED;
 }
 
-.avatar-field .avatar4 {
+.avatar-field #avatar4 {
   background-color: #D58BDD;
 }
 
-.avatar-field .avatar5 {
+.avatar-field #avatar5 {
   background-color: #38E54D;
 }
 
-.avatar-field .avatar6 {
+.avatar-field #avatar6 {
   background-color: #FF1E1E;
 }
 
-.avatar-field .avatar-image:hover,
-.avatar-field .avatar-image.active {
-  opacity: .7;
+.avatar-field .avatar-image:hover {
+  cursor: url('../assets/cursor/hol462.cur'), auto;
+  border-color: #fff;
 }
+
+.avatar-field .avatar-image.active {
+  border-color: #fff;
+}
+
 
 .sign-up-section .start-game {
   width: 100%;
@@ -286,6 +300,7 @@ body {
 }
 
 .sign-up-section .start-game:hover {
+  cursor: url('../assets/cursor/hol462.cur'), auto;
   transform: scale(.9);
   -webkit-transform: scale(.9);
   -moz-transform: scale(.9);
@@ -675,6 +690,20 @@ body {
   -moz-border-radius: 5px;
   -ms-border-radius: 5px;
   -o-border-radius: 5px;
+  transition: .5s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+  -ms-transition: .5s;
+  -o-transition: .5s;
+}
+
+.button-finish-section .start-again:hover {
+  cursor: url('../assets/cursor/hol462.cur'), auto;
+  transform: scale(.9);
+  -webkit-transform: scale(.9);
+  -moz-transform: scale(.9);
+  -ms-transform: scale(.9);
+  -o-transform: scale(.9);
 }
 
 /* !finish section responsive break points */

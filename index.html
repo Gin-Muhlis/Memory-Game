@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://kit.fontawesome.com/64f5e4ae10.js" crossorigin="anonymous"></script>
+  <script src="script/script.js" async></script>
   <link rel="stylesheet" href="css/style.css">
   <title>Document</title>
 </head>
@@ -20,32 +21,32 @@
   </div>
 
   <!-- !sign up -->
-  <div class="sign-up-section">
+  <div class="sign-up-section visible">
     <div class="username-field">
       <label for="username">
         Username
       </label>
-      <input type="text" id="username">
+      <input type="text" id="username" autocomplete="off">
     </div>
     <div class="gender-field">
-      <div class="gender">
+      <div class="gender male male-field">
         <i class="fa-solid fa-mars male"></i>
         <span class="male">Male</span>
       </div>
-      <div class="gender">
+      <div class="gender female female-field">
         <i class="fa-solid fa-venus female"></i>
         <span class="female">Female</span>
       </div>
     </div>
     <div class="avatar-field">
-      <img src="assets/avatar/avatar1.png" alt="avatar-image" class="avatar1 avatar-image">
-      <img src="assets/avatar/avatar2.png" alt="avatar-image" class="avatar2 avatar-image">
-      <img src="assets/avatar/avatar3.png" alt="avatar-image" class="avatar3 avatar-image">
-      <img src="assets/avatar/avatar4.png" alt="avatar-image" class="avatar4 avatar-image">
-      <img src="assets/avatar/avatar5.png" alt="avatar-image" class="avatar5 avatar-image">
-      <img src="assets/avatar/avatar6.png" alt="avatar-image" class="avatar6 avatar-image">
+      <img src="assets/avatar/avatar1.png" alt="avatar-image" class="avatar-image" id="avatar1">
+      <img src="assets/avatar/avatar2.png" alt="avatar-image" class="avatar-image" id="avatar2">
+      <img src="assets/avatar/avatar3.png" alt="avatar-image" class="avatar-image" id="avatar3">
+      <img src="assets/avatar/avatar4.png" alt="avatar-image" class="avatar-image" id="avatar4">
+      <img src="assets/avatar/avatar5.png" alt="avatar-image" class="avatar-image" id="avatar5">
+      <img src="assets/avatar/avatar6.png" alt="avatar-image" class="avatar-image" id="avatar6">
     </div>
-    <button class="start-game">
+    <button class="start-game start">
       Start Game
     </button>
   </div>
@@ -357,7 +358,7 @@
           </div>
         </div>
         <div class="button-finish-section">
-          <button class="start-again">
+          <button class="start-again start">
             Start Game
           </button>
         </div>
