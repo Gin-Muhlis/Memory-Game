@@ -14,7 +14,7 @@
   <img src="assets/images/tree.png" alt="christmas tree" class="tree2">
 
   <!-- !welcome -->
-  <div class="welcome-section visible">
+  <div class="welcome-section visible" id="welcome">
     <span class="small-welcome-text">Welcome To</span>
     <h1 class="welcome-title-text">Memeory Game</h1>
     <button class="enter-button">Enter Game</button>
@@ -324,7 +324,7 @@
     Vitory!!!
   </h1>
   <!-- !finish section -->
-  <div class="finish-section">
+  <div class="finish-section" id="finish">
     <div class="best-score">
       <div class="profile-finish">
         <div class="image-profile-finish">
@@ -333,8 +333,8 @@
         <div class="text-name-finish">
           <h2 class="username-finish">Gin Kiyotaka</h2>
           <span class="gender-finish">
-            <i class="fa-solid fa-mars male"></i>
-          <span class="male">Male</span>
+            <i class="fa-solid fa-mars male" id="icon-gender-finish"></i>
+          <span class="male finish-user-gender">Male</span>
           </span>
         </div>
       </div>
@@ -350,13 +350,13 @@
           <div class="time-best-score">
             <h4>Time</h4>
             <span class="best-time">
-              01:30
+              00:00
             </span>
           </div>
           <div class="flips-best-score">
             <h4>Flips</h4>
-            <span class="best-date">
-              16
+            <span class="best-flip">
+              0
             </span>
           </div>
         </div>
@@ -368,6 +368,11 @@
       </div>
     </div>
   </div>
+
+  <div id="snow"></div>
+
+  <script src="script/particles.min.js"></script>
+  <script src="script/app.js"></script>
 
 </body>
 </html>

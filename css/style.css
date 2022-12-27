@@ -603,7 +603,6 @@ body {
 .profile-finish .image-profile-finish {
   width: 50px;
   height: 50px;
-  background-color: #9F73AB;
   padding: 1px 1px 0 1px;
   overflow: hidden;
   border: 1px solid #fff;
@@ -775,3 +774,12 @@ body {
 
 }
 
+#snow {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: none;
+  z-index: -1;
+}

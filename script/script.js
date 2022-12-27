@@ -1,9 +1,14 @@
+let userDATA = [];
+let bestTIME = [];
+let bestFLIPS = [];
+
 class user {
   constructor() {
     this.username = null;
     this.gender = null;
     this.genderIcon = null;
     this.avatar = null;
+    this.idAvatar = null;
   }
 
   setUsername() {
@@ -49,9 +54,11 @@ class user {
       if (e.target.classList.contains('avatar-image')) {
         e.target.classList.add('active');
         this.avatar = e.target.src;
+        this.idAvatar = e.target.id;
       }
     })
   }
+
 
   getUsername() {
     return this.username;
@@ -67,6 +74,10 @@ class user {
 
   getAvatar() {
     return this.avatar;
+  }
+
+  getIdAvatar() {
+    return this.idAvatar;
   }
 }
 
@@ -106,10 +117,6 @@ class audioController {
 class gameSystem {
   constructor(card) {
     this.cardsArray = card;
-    this.timer = 0;
-    this.second = 0;
-    this.minute = 0;
-    this.hour = 0;
     this.hourText = document.getElementById('hour');
     this.minuteText = document.getElementById('minute');
     this.secondText = document.getElementById('second');
@@ -121,15 +128,19 @@ class gameSystem {
     this.matchedCards = [];
     this.cardToCheck = null;
     this.totalClicks = 0;
+    this.timer = 0;
+    this.second = 0;
+    this.minute = 0;
+    this.hour = 0;
     this.busy = true;
 
     setTimeout(() => {
-      this.audio.startMusic();
       this.shuffleCards(this.cardsArray);
       this.counter = this.startCounter();
       this.busy = false
     }, 500)
-
+    
+    this.audio.startMusic();
     this.hideCards();
   }
 
@@ -235,14 +246,113 @@ class gameSystem {
   }
 
   victory() {
+    bestTIME.push(this.timer);
+    bestFLIPS.push(this.totalClicks);
     clearInterval(this.counter)
     this.audio.victory();
     document.querySelector('.game-container').classList.remove('visible');
     document.querySelector('.finish-section').classList.add('visible');
     document.querySelector('.finish-victory').classList.add('visible');
+    document.getElementById('hour').innerText = '00';
+    document.getElementById('minute').innerText = '00';
+    document.getElementById('second').innerText = '00';
+    document.getElementById('flips').innerText = '0';
+
+    saveData();
+    onceTrue();
   }
 
+  checkBestScore() {
+    let userBestTime = Math.min(...bestTIME);
+    let userBestFlip = Math.min(...bestFLIPS);
+
+    let bestHour = Math.floor(userBestTime / 3600);
+    userBestTime = userBestTime - bestHour * 3600;
+    let bestMinute = Math.floor(userBestTime / 60);
+    let bestSecond = userBestTime - bestMinute * 60;
+
+    document.querySelector('.best-date').innerText = this.getDate();
+    document.querySelector('.best-flip').innerText = userBestFlip;
+    
+    if (bestSecond > 9 && bestMinute > 9 && bestHour > 9) {
+      document.querySelector('.best-time').innerText = `${bestHour}:${bestMinute}:${bestSecond}`;
+    } else if (bestSecond < 9 && bestMinute < 9 && bestHour < 9) {
+      document.querySelector('.best-time').innerText = `0${bestHour}:0${bestMinute}:0${bestSecond}`;
+    } else if (bestSecond > 9 && bestMinute < 9 && bestHour < 9) {
+      document.querySelector('.best-time').innerText = `0${bestHour}:0${bestMinute}:${bestSecond}`;
+    } else if (bestSecond > 9 && bestMinute > 9 && bestHour < 9) {
+      document.querySelector('.best-time').innerText = `0${bestHour}:${bestMinute}:${bestSecond}`;
+    } else if (bestSecond > 9 && bestMinute < 9 && bestHour > 9) {
+      document.querySelector('.best-time').innerText = `${bestHour}:0${bestMinute}:${bestSecond}`;
+    } else if (bestSecond < 9 && bestMinute > 9 && bestHour < 9) {
+      document.querySelector('.best-time').innerText = `0${bestHour}:${bestMinute}:0${bestSecond}`;
+    } else if (bestSecond < 9 && bestMinute > 9 && bestHour > 9) {
+      document.querySelector('.best-time').innerText = `${bestHour}:${bestMinute}:${bestSecond}`;
+    } else if (bestSecond < 9 && bestMinute < 9 && bestHour > 9) {
+      document.querySelector('.best-time').innerText = `${bestHour}:0${bestMinute}:0${bestSecond}`;
+    }
+
+  }
+
+  getDate() {
+    let now = new Date();
+    let date = now.getDate();
+    let month = now.getMonth();
+    let year = now.getFullYear();
+
+    return `${date}-${month}-${year}`;
+  }
+
+  dataFinish() {
+    document.querySelector('.avatar-finish').src = userDATA[0].avatar;
+    document.querySelector('.username-finish').innerText = userDATA[0].username;
+    document.querySelector('#icon-gender-finish').className = userDATA[0].genderIcon;
+    document.querySelector('.finish-user-gender').innerText = userDATA[0].gender;
+
+    switch(userDATA[0].idAvatar) {
+      case 'avatar1' :
+        document.querySelector('.image-profile-finish').style.background = '#9F73AB';
+
+        break;
+      case 'avatar2' :
+        document.querySelector('.image-profile-finish').style.background = '#F0FF42';
+
+        break;
+      case 'avatar3' :
+        document.querySelector('.image-profile-finish').style.background = '#7DE5ED';
+
+        break;
+      case 'avatar4' :
+        document.querySelector('.image-profile-finish').style.background = '#D58BDD';
+
+        break;
+      case 'avatar5' :
+        document.querySelector('.image-profile-finish').style.background = '#38E54D';
+
+        break;
+      case 'avatar6' :
+        document.querySelector('.image-profile-finish').style.background = '#FF1E1E';
+
+        break;
+      default :
+      document.querySelector('.image-profile-finish').style.background = '#181818';
+    }
+
+    switch(userDATA[0].gender) {
+      case 'Male' :
+        document.querySelector('.gender-finish').style.color = '#00FFF6';
+         
+      break;
+      case 'Female' :
+        document.querySelector('.gender-finish').style.color = '#EA047E';
+
+      break;
+      default : 
+      document.querySelector('.gender-finish').style.color = '#181818';
+    }
+  }
 }
+
 
 // !mengecek ketika browser sedang loading
 if (document.readyState == 'loading') {
@@ -252,6 +362,11 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
+  if (localStorage.getItem('USER') !== null && localStorage.getItem('TIME') !== null && localStorage.getItem('FLIPS') !== null)  {
+    getData();
+    onceTrue();
+  }
+
   // !menghilangkan pop up selamat datang dan memunculkan sign up section
   document.querySelector('.enter-button').addEventListener('click', () => {
     document.querySelector('.welcome-section').classList.remove('visible');
@@ -273,9 +388,21 @@ function ready() {
       if (element.classList.contains('start-game')) {
         userGame.setUsername();
         if (userGame.getUsername() && userGame.getGender() && userGame.getGenderIcon() && userGame.getAvatar()) {
+          let myObj = {
+            username: userGame.getUsername(),
+            gender: userGame.getGender(),
+            genderIcon: userGame.getGenderIcon(),
+            avatar: userGame.getAvatar(),
+            idAvatar: userGame.getIdAvatar(),
+            once: true
+          }
+
+          userDATA.push(myObj);
           document.querySelector('.sign-up-section').classList.remove('visible');
           document.querySelector('.game-container').classList.add('visible');
           game.startGame();
+
+          saveData();
         } else {
           alert('Silahkan isi data diri terlebih dahulu');
         }
@@ -294,4 +421,28 @@ function ready() {
       game.flipCards(card);
     })
   })
+}
+
+function saveData() {
+ localStorage.setItem('USER', JSON.stringify(userDATA));
+ localStorage.setItem('TIME', JSON.stringify(bestTIME));
+ localStorage.setItem('FLIPS', JSON.stringify(bestFLIPS));
+ getData();
+}
+
+function getData() {
+  userDATA = JSON.parse(localStorage.getItem('USER'));
+  bestTIME = JSON.parse(localStorage.getItem('TIME'));
+  bestFLIPS = JSON.parse(localStorage.getItem('FLIPS'));
+}
+
+function onceTrue() {
+  const cards = Array.from(document.getElementsByClassName('card'));
+  const gameTrue = new gameSystem(cards);
+
+  document.querySelector('#welcome').classList.remove('visible');
+  document.querySelector('#finish').classList.add('visible');
+
+  gameTrue.dataFinish();
+  gameTrue.checkBestScore();
 }
