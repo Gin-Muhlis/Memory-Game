@@ -397,8 +397,7 @@ function ready() {
             gender: userGame.getGender(),
             genderIcon: userGame.getGenderIcon(),
             avatar: userGame.getAvatar(),
-            idAvatar: userGame.getIdAvatar(),
-            once: true
+            idAvatar: userGame.getIdAvatar()
           }
 
           userDATA.push(myObj);
