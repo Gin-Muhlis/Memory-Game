@@ -272,7 +272,11 @@ class gameSystem {
     let bestSecond = userBestTime - bestMinute * 60;
 
     document.querySelector('.best-date').innerText = this.getDate();
-    document.querySelector('.best-flip').innerText = userBestFlip;
+
+    if (bestFLIPS.length !== 0)
+      document.querySelector('.best-flip').innerText = userBestFlip;
+    else
+      document.querySelector('.best-flip').innerText = '0';
     
     if (bestSecond > 9 && bestMinute > 9 && bestHour > 9) {
       document.querySelector('.best-time').innerText = `${bestHour}:${bestMinute}:${bestSecond}`;
@@ -362,7 +366,7 @@ if (document.readyState == 'loading') {
 }
 
 function ready() {
-  if (localStorage.getItem('USER') !== null && localStorage.getItem('TIME') !== null && localStorage.getItem('FLIPS') !== null)  {
+  if (localStorage.getItem('USER') !== null && JSON.parse(localStorage.getItem('TIME')).length !== 0 && JSON.parse(localStorage.getItem('FLIPS')).length !== 0)  {
     getData();
     onceTrue();
   }
@@ -404,7 +408,11 @@ function ready() {
 
           saveData();
         } else {
-          alert('Silahkan isi data diri terlebih dahulu');
+          document.querySelector('.alert').classList.add('visible');
+
+          setTimeout(() => {
+            document.querySelector('.alert').classList.remove('visible');
+          }, 3000)
         }
       } else if (element.classList.contains('start-again')) {
         document.querySelector('.finish-section').classList.remove('visible');
